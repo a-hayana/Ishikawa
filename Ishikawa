@@ -1,0 +1,37 @@
+# install.packages("SixSigma") # Pacote para instalação
+# library(SixSigma) # Carregar pacote SixSigma
+
+
+# --------> Dados de entrada <----------
+
+problema = "Produtos defeituosos"
+
+
+metodos = c("Controle de qualidade ineficaz", 
+             "Método de transporte",
+            "Jornada de trabalho excessiva")
+maquinas = c("Equipamentos obsoletos", "Condições operacionais",
+              "Falta de manutenção nas máquinas")
+pessoal = c("Falta de treinamento","Falta de atenção",
+            "Procedimento inadequado")
+materiais = c("Fornecedor", "Corte irregular",
+              "Embalagem inapropriada")
+ambiente = c("Temperatura", "Umidade", "Poeira")
+
+medida = c("Calibração", "Análise de indicadores")
+
+causas_primarias = c("MÉTODOS", "MÁQUINAS", "PESSOAL", 
+                      "MATERIAIS", "AMBIENTE", "MEDIDA")
+
+causas_secundarias = c()
+causas_secundarias[1] = list(c(metodos))
+causas_secundarias[2] = list(c(maquinas))
+causas_secundarias[3] = list(c(pessoal))
+causas_secundarias[4] = list(c(materiais))
+causas_secundarias[5] = list(c(ambiente))
+causas_secundarias[6] = list(c(medida))
+
+ishikawa = ss.ceDiag(problema, causas_primarias, causas_secundarias,
+                                main = "DIAGRAMA DE ISHIKAWA",
+                      sub = "Elaborado por: Ariane Hayana")
+
